@@ -12,8 +12,8 @@ let menuItems = [
 
 window.addEventListener("load", function () {
 
-  let headerDiv = document.querySelector('.header');
-  let mainMenu = document.querySelector('.header .menu-button');
+  let hamburgerMenuImg = document.querySelector('.header .menu-button');
+  let bodyVar = document.querySelector('body');
 
   function menuCreator(array) {
     const menu = document.createElement('div');
@@ -42,15 +42,15 @@ window.addEventListener("load", function () {
     menuMusic.textContent = array['4'];
     menuLogOut.textContent = array['5'];
 
-    mainMenu.addEventListener('click', function () {
+    hamburgerMenuImg.addEventListener('click', function () {
       menu.classList.toggle('menu--open');
     });
 
     return menu
   }
-  
+
   let finishedMenu = menuCreator(menuItems);
-  headerDiv.appendChild(finishedMenu);
+  bodyVar.appendChild(finishedMenu);
 
 });
 
