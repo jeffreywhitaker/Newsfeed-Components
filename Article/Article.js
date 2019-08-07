@@ -1,5 +1,6 @@
 /* This is the data we will be using to create our article components */
-/* Look over this data, then proceed to line 91*/
+/* Look over this data, then proceed to line 91 */
+
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -85,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Jeff is Cool',
+    date: 'August 7th, 2019',
+    firstParagraph: `Jeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is CoolJeff is Cool`,
+
+    secondParagraph: `Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool Jeff is super awesome and Cool`,
+
+    thirdParagraph: `Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time! Jeff is the best and is so great all the time!`
   }
 ];
 
@@ -102,6 +112,14 @@ const data = [
 //   Hint: You will need to use createElement more than once here!
 
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
+window.addEventListener("load", function(){
+
+
+const articlesContainer = document.querySelector('body .articles');
+
+data.forEach(data => {
+  articlesContainer.appendChild(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+});
 
 function articleCreator(title, date, firstpara, secondpara, thirdpara) {
   const article = document.createElement('div');
@@ -117,10 +135,29 @@ function articleCreator(title, date, firstpara, secondpara, thirdpara) {
   article.appendChild(articleParaOne);
   article.appendChild(articleParaTwo);
   article.appendChild(articleParaThree);
-  article.appendChild(articlebutton);
+  article.appendChild(articleButton);
 
-  
-}
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleParaOne.textContent = firstpara;
+  articleParaTwo.textContent = secondpara;
+  articleParaThree.textContent = thirdpara;
+  articleButton.textContent = "\u25bc";
+
+  articleButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+};
+
+
+})
+
 
 
   // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.

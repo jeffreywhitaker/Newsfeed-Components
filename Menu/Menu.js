@@ -9,6 +9,36 @@ let menuItems = [
   'Log Out'
 ];
 
+function menuCreator(array) {
+  const menu = document.createElement('div');
+  const menuUl = document.createElement('ul');
+  const menuStudents = document.createElement('li');
+  const menuFaculty = document.createElement('li');
+  const menuWhatsNew = document.createElement('li');
+  const menuTechTrends = document.createElement('li');
+  const menuMusic = document.createElement('li');
+  const menuLogOut = document.createElement('li');
+
+  menu.appendChild(menuUl);
+  menuUl.appendChild(menuStudents);
+  menuUl.appendChild(menuFaculty);
+  menuUl.appendChild(menuWhatsNew);
+  menuUl.appendChild(menuTechTrends);
+  menuUl.appendChild(menuMusic);
+  menuUl.appendChild(menuLogOut);
+
+  menu.classList.add('menu');
+
+  menuStudents.textContent = array['0'];
+  menuFaculty.textContent = array['1'];
+  menuWhatsNew.textContent = array['2'];
+  menuTechTrends.textContent = array['3'];
+  menuMusic.textContent = array['4'];
+  menuLogOut.textContent = array['5'];
+
+}
+
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:
