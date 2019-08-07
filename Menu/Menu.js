@@ -10,13 +10,14 @@ let menuItems = [
 ];
 
 
-window.addEventListener("load", function(event){
+window.addEventListener("load", function(){
 
+  let headerDiv = document.querySelector('.header');
   let mainMenu = document.querySelector('.header .menu-button');
   mainMenu.addEventListener('click', function() {
-    mainMenu.classList.toggle('menu--open');
+    finishedMenu.classList.toggle('menu--open');
   });
-  
+
   function menuCreator(array) {
     const menu = document.createElement('div');
     const menuUl = document.createElement('ul');
@@ -47,7 +48,8 @@ window.addEventListener("load", function(event){
     return menu
   }
 
-  menuCreator(menuItems);
+  let finishedMenu = menuCreator(menuItems);
+  headerDiv.appendChild(finishedMenu);
 
 });
 

@@ -99,7 +99,7 @@ const data = [
 ];
 
 // Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+
 //   <div class="article">
 //     <h2>{title of the article}</h2>
 //     <p class="date">{date of the article}</p>
@@ -112,48 +112,48 @@ const data = [
 //   Hint: You will need to use createElement more than once here!
 
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
 
 
-const articlesContainer = document.querySelector('body .articles');
+  const articlesContainer = document.querySelector('body .articles');
 
-data.forEach(data => {
-  articlesContainer.appendChild(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
-});
-
-function articleCreator(title, date, firstpara, secondpara, thirdpara) {
-  const article = document.createElement('div');
-  const articleTitle = document.createElement('h2');
-  const articleDate = document.createElement('p');
-  const articleParaOne = document.createElement('p');
-  const articleParaTwo = document.createElement('p');
-  const articleParaThree = document.createElement('p');
-  const articleButton = document.createElement('span');
-
-  article.appendChild(articleTitle);
-  article.appendChild(articleDate);
-  article.appendChild(articleParaOne);
-  article.appendChild(articleParaTwo);
-  article.appendChild(articleParaThree);
-  article.appendChild(articleButton);
-
-  article.classList.add('article');
-  articleDate.classList.add('date');
-  articleButton.classList.add('expandButton');
-
-  articleTitle.textContent = title;
-  articleDate.textContent = date;
-  articleParaOne.textContent = firstpara;
-  articleParaTwo.textContent = secondpara;
-  articleParaThree.textContent = thirdpara;
-  articleButton.textContent = "\u25bc";
-
-  articleButton.addEventListener('click', () => {
-    article.classList.toggle('article-open');
+  data.forEach(data => {
+    articlesContainer.appendChild(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
   });
 
-  return article;
-};
+  function articleCreator(title, date, firstpara, secondpara, thirdpara) {
+    const article = document.createElement('div');
+    const articleTitle = document.createElement('h2');
+    const articleDate = document.createElement('p');
+    const articleParaOne = document.createElement('p');
+    const articleParaTwo = document.createElement('p');
+    const articleParaThree = document.createElement('p');
+    const articleButton = document.createElement('span');
+
+    article.appendChild(articleTitle);
+    article.appendChild(articleDate);
+    article.appendChild(articleParaOne);
+    article.appendChild(articleParaTwo);
+    article.appendChild(articleParaThree);
+    article.appendChild(articleButton);
+
+    article.classList.add('article');
+    articleDate.classList.add('date');
+    articleButton.classList.add('expandButton');
+
+    articleTitle.textContent = title;
+    articleDate.textContent = date;
+    articleParaOne.textContent = firstpara;
+    articleParaTwo.textContent = secondpara;
+    articleParaThree.textContent = thirdpara;
+    articleButton.textContent = "\u25bc";
+
+    articleButton.addEventListener('click', () => {
+      article.classList.toggle('article-open');
+    });
+
+    return article;
+  };
 
 
 })
